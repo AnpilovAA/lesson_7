@@ -13,7 +13,6 @@ def countdown(chat_id, message):
     time = parse(message)
     main_notify_message = "Осталось {} секунд!".format(time)
     message_id = bot.send_message(chat_id=chat_id, message=main_notify_message)
-
     bot.create_countdown(
         time,
         notify_progress,
@@ -25,12 +24,10 @@ def countdown(chat_id, message):
 
 def notify_progress(secs_left, chat_id, message_id):
     bar = render_progressbar
-
     if secs_left != 0:
         notify_message = f"Осталось {secs_left} секунд! \n {bar(secs_left, 0.9)}"
     else:
         notify_message = f"Осталось {0} секунд! \n {bar(1, 1)}"
-
     bot.update_message(
         chat_id=chat_id,
         message_id=message_id,
