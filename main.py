@@ -41,12 +41,9 @@ def render_progressbar(total, iteration, prefix='', suffix='', length=30, fill='
     return '{0} |{1}| {2}% {3}'.format(prefix, pbar, percent, suffix)
 
 
-def main():
-    bot.send_message(config.TG_CHAT_ID, "Бот запущен")
-    bot.reply_on_message(countdown)
-    bot.run_bot()
-
 
 if __name__ == "__main__":
     bot = ptbot.Bot(config.TG_TOKEN)
-    main()
+    bot.send_message(config.TG_CHAT_ID, "Бот запущен")
+    bot.reply_on_message(countdown)
+    bot.run_bot()
